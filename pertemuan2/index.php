@@ -13,6 +13,10 @@ mempelajari mengenai sintaks PHP
 //echo, print
 //Print_r
 //var_dump
+// operator
+// aritmatika
+// + - / *
+// penggabung string
 
 echo "bintangyandiii"
 ?>
