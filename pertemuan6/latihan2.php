@@ -15,14 +15,14 @@ $mahasiswa = [
     "nrp" => "203040037",
     "email" => "acutyp9@gmail.com",
     "jurusan" => "Teknik Informatika",
-    "gambar" => "IMG-20191026-WA0103"
+    "gambar" => "unpas.jpg"
     ],
     [
         "nama" => "Boy Hendra", 
         "nrp" => "203040060",
         "email" => "boyhendra@gmail.com",
         "jurusan" => "Teknik Mesin",
-        "gambar" => "dom.jpg"
+        "gambar" => "unpas.jpg"
     ]
 ];
 
