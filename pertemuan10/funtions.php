@@ -2,7 +2,7 @@
 
 function koneksi()
 {
-  return mysqli_connect("localhost", "root", "", "pw_203040006");
+  return mysqli_connect("localhost", "root", "", "pw_tubes_203040037");
 }
 
 
