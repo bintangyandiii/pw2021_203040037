@@ -17,16 +17,16 @@ $pegawai = query("SELECT * FROM pegawai")
   <h3>Daftar Pegawai</h3>
   <table border="1" cellpadding="10" cellspacing="0">
     <tr>
-      <th>NO</th>
-      <th>Aksi</th>
-      <th>Nama</th>
+      <td>NO</td>
+      <td>Aksi</td>
+      <td>Nama</td>
     </tr>
     <?php $i = 1; ?>
     <?php foreach ($pegawai as $pg) : ?>
       <tr>
         <th><?= $i; ?></th>
         <th>
-          <a href="detail.php?id=<?= $pg; ?>">Lihat detail</a>
+          <a href="detail.php?nip <?= $pg; ?>">lihat detail</a>
         </th>
         <th><?= $pg["nama"]; ?></th>
       </tr>
