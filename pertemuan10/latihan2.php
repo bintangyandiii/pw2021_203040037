@@ -1,53 +1,65 @@
 <?php
 //koneksi ke database
 $conn = mysqli_connect("localhost", "root", "","pw_tubes_203040037");
-//ambil data base dari tabel mahasiswa
+// query isi tabel
 $result = mysqli_query($conn, "SELECT * FROM mahasiswa");
 
-//ambil data (fetch) mahasiswa dari object result
-//mysqli_fetch_row()= mengembalikan array numerik
-//mysqli_fetch_assoc()=mengembalikan array associative
-//mysqli_fetch_array()=
-//mysqli_fetch_object()
-$mhs = mysqli_fetch_assoc($result);
-var_dump($mhs);
+// ubah dalam array
+$rows = [];
+while ($row = mysqli_fetch_assoc($result)) {
+  $rows[] = $row;
+}
+
+// tampung ke variabel
+$mahasiwa = $rows;
 
 ?>
+
 <!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <title>halaman admin</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    img {
+      height: 100px;
+      ;
+    }
+  </style>
+  <title>Daftar Mahasiswa</title>
 </head>
+
 <body>
-    <h1>daftar mahasiswa</h1>
+  <h3>Daftar Mahasiswa</h3>
 
-    <table border="1" cellpadding="10" cellspacing="0">
+  <table border="1" cellspacing="0" cellpadding="10">
     <tr>
-        <th>No.</th>
-        <th>Aksi</th>
-        <th>Gambar</th>
-        <th>NRP</th>
-        <th>Nama</th>
-        <th>Email</th>
-        <th>Jurusan</th>
+      <th>Id</th>
+      <th>Gambar</th>
+      <th>Nama</th>
+      <th>Nrp</th>
+      <th>Email</th>
+      <th>Jurusan</th>
+      <th>Aksi</th>
     </tr>
-
-    <?php $i=1;?>
-    <?php while($row =mysqli_fetch_assoc($result)):?>
-
-    <tr>
-        <td><?=$i ?></td>
+    <?php $i = 1; ?>
+    <?php foreach ($mahasiwa as $m) : ?>
+      <tr>
+        <td><?= $i++; ?></td>
+        <td><img src="img/<?= $m['img']; ?>" alt=""></td>
+        <td><?= $m['nama']; ?></td>
+        <td><?= $m['nrp']; ?></td>
+        <td><?= $m['email']; ?></td>
+        <td><?= $m['jurusan']; ?></td>
         <td>
-        <a href="">ubah</a>|
-        <a href="">hapus</a>
+          <a href="">Ubah</a> | <a href="">Hapus</a>
         </td>
-        <td><img src="img/<?= $row["img"];?>" width="50" ></td>
-        <td><?= $row["nrp"];?></td>
-        <td><?= $row["nama"];?></td>
-        <td><?= $row["email"];?></td>
-        <td><?= $row["jurusan"];?></td>
-    </tr>
-    <?php $i++;?>
-    <?php endwhile;?>
-    </table>
+      </tr>
+    <?php endforeach; ?>
+  </table>
 </body>
+
 </html>
